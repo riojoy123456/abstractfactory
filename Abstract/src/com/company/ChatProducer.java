@@ -2,18 +2,15 @@ package com.company;
 
 public class ChatProducer {
 
-    public static final String PILIH_CHAT = "Memilih Chat";
-    public static final String PILIH_AuthCHAT = "Memilih Authorized Chat";
+    public AbstractChatFactory getFactory(boolean isAuthorized) {
 
-    public static AbstractChatFactory getFactory(String isAuthorized) {
-        if (isAuthorized.equals(PILIH_CHAT)){
+        if (isAuthorized) {
+
+            return new AuthorizedChatFactory();
+        }
+        else {
 
             return new ChatFactory();
         }
-        else if (isAuthorized.equals(PILIH_AuthCHAT)){
-            return new AuthorizedChatFactory();
-        }
-
-        return null;
     }
 }
