@@ -10,6 +10,7 @@ public class AuthorizedPaymentConfirmationChat implements Chat {
 
     @Override
     public String getResponseText() {
+
         return orderNum;
     }
 }
